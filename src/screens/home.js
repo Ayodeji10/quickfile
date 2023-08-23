@@ -1,8 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { UseSelector, useDispatch, useSelector } from "react-redux";
+import { changeColor } from "../store/features/theme";
 
 function Home() {
   const navigate = useNavigate();
+
+  const color = useSelector((state) => state.theme.value);
+
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -29,6 +35,12 @@ function Home() {
       <p>to navigate</p>
       <button onClick={() => navigate("/login")}>login</button>
       <h2>React redux</h2>
+      <button
+        style={{ color: "white", backgroundColor: color }}
+        onClick={() => dispatch(changeColor())}
+      >
+        change color
+      </button>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { login, login2 } from "../store/features/user";
 
 function Login() {
-  const user = useSelector((state) => state.user.value); // user inside the useSelector is the name of the slice
+  const kawa = useSelector((state) => state.user.value); // user inside the useSelector is the name you give to the reducer when calling it in the store
 
   const dispatch = useDispatch(); //dispatch takes in action
 
@@ -18,14 +18,14 @@ function Login() {
       >
         login2
       </button>
-      <p>username: {user.name}</p>
-      <p>age; {user.age}</p>
-      <p>Years</p>
+      <p>username: {kawa.name}</p>
+      <p>age: {kawa.age}</p>
+      {/* <p>Years</p>
       <ol>
         {user.years.map((year, i) => (
           <li key={i}>{year}</li>
         ))}
-      </ol>
+      </ol> */}
     </div>
   );
 }
